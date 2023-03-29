@@ -9,12 +9,18 @@ app.use(express.json());
 const corn = require("./db/corn");
 corn();
 
-// Routes
+// Models
+
+
+// Public Routes
 const routes = require("./routes/router");
 app.use("/home",routes);
 
+const register = require("./routes/register");
+app.use("/home/auth/register",register);
 
-
+const login = require("./routes/login");
+app.use("/home/auth/login",login);
 
 
 app.listen(3000, function () {
